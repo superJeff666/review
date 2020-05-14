@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>RAF</title>
+  </head>
+  <style>
+    #div1 {
+      width: 100px;
+      height: 50px;
+      background: red;
+    }
+  </style>
+  <body>
+    <div id="div1"></div>
+  </body>
+</html>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+<script>
+  // 3s 把宽度从100px变为 640px, 增加540px;
+  const $div1 = $("#div1");
+  let curWidth = 100;
+  const maxWidth = 540;
+
+  // setTimeout
+//   function animate() {
+//     curWidth = curWidth + 3;
+//     $div1.css("width", curWidth);
+//     if (curWidth < maxWidth) {
+//       setTimeout(animate, 16.7); // 自己控制时间
+//     }
+//   }
+
+// RAF
+function animate() {
+    curWidth = curWidth + 3;
+    $div1.css("width", curWidth);
+    if(curWidth < maxWidth) {
+        window.requestAnimationFrame(animate)
+    }
+}
+  animate();
+</script>

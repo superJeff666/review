@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>类</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  //es5
+  // let Animal = function(type) {
+  //     this.type = type;
+  // }
+  // Animal.prototype.eat = function() {
+  //     console.log('i am eating food')
+  // }
+  // let dog = new Animal('dog');
+  // let cat = new Animal('cat');
+
+  // console.log(dog);
+  // console.log(cat);
+  // cat.constructor.prototype.eat = function() {
+  //     console.log('err');
+  // }
+
+  // dog.eat();
+  // cat.eat();
+  //------------------
+  //es6 class
+  //   class Animal {
+  //     constructor(type) {
+  //       this.type = type;
+  //     }
+  //     eat() {
+  //       console.log("i am eating food");
+  //     }
+  //   }
+  //   let dog = new Animal("dog");
+  //   let cat = new Animal("cat");
+  //   dog.eat();
+  //   cat.eat();
+  //   console.log(typeof Animal)
+
+  //getter && setter
+  //   let _age = 4;
+  //   class Animal {
+  //     constructor(type) {
+  //       this.type = type;
+  //     }
+
+  //     get age() {
+  //         return _age;
+  //     }
+
+  //     set age(val) {
+  //         if(val < 7 && val > 4) {
+  //             _age = val;
+  //         }
+  //     }
+
+  //     eat() {
+  //       console.log("i am eating food");
+  //     }
+  //   }
+  //   let dog = new Animal("dog");
+  //   console.log(dog.age);
+  //   dog.age = 5;
+  //   console.log(dog.age)
+
+  //   class Animal {
+  //     constructor(type) {
+  //       this.type = type;
+  //     }
+
+  //     eat() {
+  //       Animal.walk();
+  //       console.log("i am eating food");
+  //     }
+
+  //     // 类的静态方法
+  //     static walk() {
+  //       console.log("i am walking");
+  //     }
+  //   }
+  //   let dog = new Animal("dog");
+  //   dog.eat();
+
+  //继承
+  //   class Animal {
+  //     constructor(type) {
+  //       this.type = type;
+  //     }
+
+  //     eat() {
+  //       Animal.walk();
+  //       console.log("i am eating food");
+  //     }
+
+  //     // 类的静态方法
+  //     static walk() {
+  //       console.log("i am walking");
+  //     }
+  //   }
+
+  //   class Dog extends Animal {
+  //     constructor(type) {
+  //       super(type);
+  //       this.age = 2;
+  //     }
+  //   }
+  //   let dog = new Dog("dog");
+  //   dog.eat();
+</script>

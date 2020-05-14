@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>实现curry函数</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  //实现sum(1)(2)(3)返回结果是1，2，3之和
+  //
+  //   function sum(a) {
+  //     return function(b) {
+  //       return function(c) {
+  //         return a + b + c;
+  //       };
+  //     };
+  //   }
+  //   console.log(sum(1)(2)(3));
+
+  //实现通用的curry函数
+  function curry(fn, args = []) {
+    return function() {
+      let rest = [...args, ...arguments];
+      if (rest.length < fn.length) {
+        return curry.call(this,fn,rest);
+      } else {
+        return fn.apply(this,rest);
+      }
+    };
+  }
+  function sum(a,b,c) {
+    return a + b + c; 
+  }
+  let sumFn = curry(sum);
+  console.log(sumFn(1)(2)(3));
+</script>

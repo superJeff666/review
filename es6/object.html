@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>object</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  //object property
+  // let x = 1; let y = 2; let z = 3;
+  // let obj = {
+  //     x,
+  //     y,
+  //     [z]: 7,
+  //     hello() {
+  //         console.log('hello')
+  //     }
+  // }
+  // obj.hello();
+  // ----------------------
+  //Set
+  //let s = new Set([1,2,3,4]);
+  // let s = new Set();
+  // s.add('a').add('b');
+  // s.delete('a')
+  // s.clear()
+  //s.has('a')
+  //s.size
+  // console.log(s.keys());
+  // console.log(s.values());
+  // console.log(s.entries());
+  // s.forEach(item=> {
+  //     console.log(item)
+  // })
+  // for(let item of s) {
+  //     console.log(item)
+  // }
+
+  // ----------------------
+
+  //Map
+  //let map = new Map([[1,2],[3,4]]);
+  // let map = new Map();
+  // map.set(1,'value-2');
+  // map.set(3,'value-4');
+  // map.delete(1);
+  // map.clear();
+  //console.log(map.size)
+  //console.log(map.has(2)) //查的索引值，不是value值
+  // console.log(map.get(1))
+  // console.log(map.keys(),map.values(),map.entries());
+  // map.forEach((val,key)=> {
+  //     console.log(val,key);
+
+  // })
+  // for(let [key, value] of map) {
+  //     console.log(key,value)
+  // }
+
+  //--------------------------------
+  //object拷贝
+  const target = {};
+  const source = { b: 4, c: 5 };
+  Object.assign(target, source);
+  console.log(target);
+</script>

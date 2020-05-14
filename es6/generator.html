@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>generator</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  //   function* loop() {
+  //     for (let i = 0; i < 5; i++) {
+  //       yield console.log(i);
+  //     }
+  //   }
+  //   const l = loop();
+  //   l.next();
+  //   l.next();
+
+  //   function* count(x = 1) {
+  //     while (1) {
+  //       if (x % 3 === 0) {
+  //         yield x;
+  //       }
+  //       x++;
+  //     }
+  //   }
+  //   let num = count();
+  //   console.log(num.next().value);
+  //   console.log(num.next().value);
+  //   console.log(num.next().value);
+  //   console.log(num.next().value);
+  //   console.log(num.next().value);
+
+  //斐波那契数列
+  //   function fibonacci(n) {
+  //     if (n < 0) {
+  //       throw new Error("输入的数字不能小于0");
+  //     }
+  //     if (n == 1 || n == 2) {
+  //       return 1;
+  //     } else {
+  //       return fibonacci(n - 1) + fibonacci(n - 2);
+  //     }
+  //   }
+  //   function fibonacci(n) {
+  //     let n1 = 1,
+  //       n2 = 1,
+  //       sum;
+  //     for (let i = 2; i < n; i++) {
+  //       sum = n1 + n2;
+  //       n1 = n2;
+  //       n2 = sum;
+  //     }
+  //     return sum;
+  //   }
+  //generator
+  //   function* fibonacci(max) {
+  //     var count = 0,
+  //       last = 0,
+  //       current = 1;
+
+  //     while (count++ < max) {
+  //       yield current;
+  //       var tmp = current;
+  //       current += last;
+  //       last = tmp;
+  //     }
+  //   }
+
+  //   for (var i of fibonacci(3)) {
+  //     console.log(i);
+  //   }
+</script>

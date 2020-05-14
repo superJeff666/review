@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>数组&&对象解构赋值</title>
+  </head>
+  <body>
+    <p>数组&&对象解构赋值</p>
+  </body>
+</html>
+<script>
+  //数组解构赋值
+  //es5
+  // let arr = ['a','b'];
+  // let one = arr[0];
+  // console.log(one)
+
+  //es6
+  // let arr = ['a','b'];
+  // let [one, two] =  arr;
+  // console.log(one, two);
+
+  // let arr = 'abcd';
+  // let [one,, three] = new Set([1,2,3,4]);
+  // console.log(one,three)
+
+  // let user = {name:'s',surname:'t'};
+  // [user.name,user.surname] = [1,2];
+  // console.log(user);
+
+  // let user = {name:'s',surname: 't'};
+  // for (let [k,v] of Object.entries(user)) {
+  //     console.log(k,v)
+  // }
+
+  // let arr = [1,2,3,4,5,6,7,8,9];
+  // let [firstName,curName,...last] = arr;
+  // console.log(firstName,curName,last)
+
+  // let arr = [];
+  // let [firstName,curName,...last] = arr;
+  // console.log(firstName,curName,last) //undefined undefined []
+//------------------------
+  // 对象解构赋值
+  // let options = {
+  //   title:'menu',
+  //   width: 100,
+  //   height: 200
+  // }
+  // let {title, width, height} = options;
+  // console.log(title,width,height)
+
+  // let {title, ...last} = options;
+  // console.log(title, last);
+
+  // let options = {
+  //   size: {
+  //     width: 100,
+  //     height: 200
+  //   },
+  //   items: ['Cake','dog'],
+  //   extra: true
+  // }
+  // let { size: {width,height},items: [, item2],extra } = options;
+  // console.log(width,height,item2, extra);
+</script>

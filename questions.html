@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>考题汇总</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  // 1.  [10,20,30].map(parseInt)返回结果是什么？
+
+  // [10,20,30 ].map((num,index) => {
+  //     return parseInt(num,index)
+  // })
+
+  //2. new Object() && Object.create()
+  //   const obj1 = {
+  //     a: 10,
+  //     b: 20,
+  //     sum() {
+  //       return this.a + this.b;
+  //     }
+  //   };
+
+  //   const obj2 = new Object({
+  //     a: 10,
+  //     b: 10,
+  //     sum() {
+  //       return this.a + this.b;
+  //     }
+  //   });
+
+  //   // const obj3 = new Object(obj1); // obj3 === obj2
+
+  //   const obj4 = Object.create(null);
+  //   const obj5 = new Object(); // {}
+
+  //   const obj6 = Object.create({
+  //     a: 10,
+  //     b: 10,
+  //     sum() {
+  //       return this.a + this.b;
+  //     }
+  //   });
+
+  // 3.正则表达式练习
+  //邮政编码
+  //   /\d{6}/
+
+  //   //小写英文字母
+  //   /^[a-z]+$/
+
+  //英文字母
+  //   /^[a-z][A-Z]$/
+
+  //日期格式
+  //   /^\d{4}-\d{1,2}-\d{1,2}$/
+
+  //用户名
+  // /^[a-zA-Z]\w{5-17}$/
+
+  //简单的IP地址
+  // /\d+\.\d+\.\d+\.\d+/
+
+  // 4. 手写字符串trim,保证浏览器兼容性
+  //   String.prototype.trim = function() {
+  //       return this.replace(/^\s+/,'').replace(/\s+$/,'')
+  //   }
+
+  // 5.获取多个数字中的最大值
+  // function max() {
+  //     const num = Array.prototype.slice.call(arguments);
+  //     let max = 0;
+  //     nums.forEach(n => {
+  //         if(n > max) {
+  //             max = n;
+  //         }
+  //     })
+  //     return max;
+  // }
+  // Math.max(arr);
+
+  // 获取url的参数
+  // 1.传统方式
+  //    function query(name) {
+  //        const search = location.search.substr(1);
+  //        const reg = new RegExp(`(^|&)${name}=([^&]*)(&|$)`,'i');
+  //        const res = search.match(reg);
+  //        if(res === null) {
+  //            return null;
+  //        }
+  //        console.log(res)
+  //        return res[2];
+  //    }
+  //    query('c')
+
+  // 2. urlSearchParams
+  // function query(name) {
+  //     const search = location.search;
+  //     const p = new URLSearchParams(search);
+  //     return p.get(name);
+  // }
+  // console.log(query('b'))
+</script>

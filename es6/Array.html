@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>数组遍历</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  // const arr = [1, 2, 3, 4, 5];
+  // for
+  // for(let i = 0; i<arr.length;i++) {
+  //     if(arr[i] === 2) {
+  //         break; // continue
+  //     }
+  // }
+
+  // forEach
+  // arr.forEach(function(item) {
+  //     console.log(item)
+  // })
+
+  //every
+  // arr.every(function(item) {
+  //     // 使用false来实现break，true实现contine
+  //     if(item === 2) {
+
+  //     } else {
+  //         console.log(item)
+  //     }
+  //     return true;
+  // })
+
+  // for in
+  // arr.a = 8;
+  //   for (let index in arr) {
+  //     if(index == 2) {
+  //           continue; //支持break,continue
+  //       }
+  //     console.log(index, arr[index]);
+  //   }
+
+  //for of
+  // for(let item of arr) {
+  //     console.log(item)
+  // }
+
+  //伪数组转换为数组
+  // es5
+  // let args = [].slice.call(arguments) // collection
+
+  // es6
+  //let args = Array.from(arguments);
+  //Array.from(arryLike, mapFn, thisArg)
+
+  // let arr = Array.from({length: 5},function() {return 1})
+  // console.log(arr);
+
+  // 生成新的数组
+  //es5
+  //let array = Array(5)
+  //let array = ['','']
+
+  //es6
+  // Array.prototype.of
+  // let array = Array.of(1,2,4,5);
+  // console.log(array);
+  // ----------------------
+  //Array.prototype.fill
+  // let array = Array(5).fill(2);
+  // console.log(array);
+  //Array.fill(value,start,end)
+  // let array = [1,2,3,4,5];
+  // console.log(array.fill(6,2,4))
+  // -------------------------------
+
+  // 查找数组
+  let array = [1, 2, 3, 4, 5];
+  // let find = array.filter(function(item) {
+  //   return item % 2  === 0
+  // })
+  // console.log(find);
+
+  //Array.prototype.find (找到满足条件的第一个值，不会继续往下找)
+  // let find = array.find(function(item) {
+  //   return item % 2 === 0;
+  // })
+  // console.log(find);
+
+  //Array.prototype.findIndex
+  // let find = array.findIndex(function(item) {
+  //    return item % 2 === 0;
+  // })
+  // console.log(find)
+
+  //---------------------------
+  // 函数参数的默认值
+  // function f(x, y = 7, z=x+y) {
+  //   return x* 10 +z;
+  // }
+  // console.log(f(1,2,3,4))
+  //-----------------------------------
+  //怎么处理不确定参数(res paramter)
+  //es5
+  // function sum() {
+  //   let num = 0;
+  //   Array.from(arguments).forEach(function(item){
+  //     num += item * 1;
+  //   })
+  //   return num;
+  // }
+
+  //es6
+  //   function sum (...nums) {
+  //     let num = 0;
+  //     nums.forEach(function(item) {
+  //       num += item *1;
+  //     })
+  //     return num;
+  //   }
+
+  // console.log(sum(1,2,3,5))
+
+  //-----------------------------------
+  // rest参数的逆运算(spread)
+  //es5
+  // function sum(x=1, y=2,z=3) {
+  //   return x + y + z;
+  // }
+  // let data = [4,5,7];
+  //console.log(sum(data[0],data[1],data[2]));
+  // console.log(sum.apply(this,data));
+
+  //es6
+  // console.log(sum(...data))
+</script>

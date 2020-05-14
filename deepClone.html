@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>深拷贝</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  const obj = {
+    age: 20,
+    name: "jeff",
+    address: {
+      city: "beijing"
+    },
+    arr: ["a", "b", "c"]
+  };
+  const obj2 = deepClone(obj);
+  obj2.address.city = "shanghai";
+  obj2.name = "xxx";
+  obj2.arr[0] = "a1";
+  console.log(obj.arr[0]);
+  console.log(obj.address.city);
+  // 深拷贝方法
+  function deepClone(obj) {
+    if (typeof obj !== "object" || obj == null) {
+      return;
+    }
+    let result;
+    if (obj instanceof Array) {
+      result = [];
+    } else {
+      result = {};
+    }
+
+    for (let key in obj) {
+      if (obj.hasOwnProperty(key)) {
+        result[key] = deepClone(obj[key]);
+      }
+    }
+
+    return result;
+  }
+</script>

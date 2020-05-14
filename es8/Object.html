@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>object</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  // Object.keys() && Object.values() && Object.entries()
+  // let grade = {
+  //   'jeff': 100,
+  //   'tom': 90
+  // }
+  // console.log(Object.keys(grade).filter(item => item === 'jeff'));
+  // console.log(Object.values(grade))
+  // for(let [k,v] of Object.entries(grade)) {
+  //   console.log(k,v)
+  // }
+  //------------------------------------------------------
+  //如何获取object数据的描述符
+  const data = {
+    a: "10/20",
+    b: "88/32",
+    c: "100/200"
+  };
+  Object.defineProperty(data, "c", {
+    enumerable: false,
+    writable: false
+  });
+  console.log(Object.keys(data));
+  console.log(Object.getOwnPropertyDescriptor(data, "c"));
+</script>

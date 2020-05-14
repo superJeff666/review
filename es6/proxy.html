@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>代理</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  //   let o = {
+  //     name: "jeff",
+  //     price: 190
+  //   };
+  //   let d = new Proxy(o, {
+  //     get(target, key) {
+  //       if (key === "price") {
+  //         return target[key] + 20;
+  //       } else {
+  //         return target[key];
+  //       }
+  //     }
+  //   });
+  //   console.log(d.price);
+
+  // let o = {
+  //     name: "jeff",
+  //     price: 190
+  //   };
+  //   let d = new Proxy(o, {
+  //     get(target, key) {
+  //       return target[key]
+  //     },
+  //     set(target, key, value) {
+  //         return false;
+  //     }
+  //   });
+  //   d.price = 300;
+  //   console.log(d.price,d.name);
+
+  //   let o = {
+  //     name: "jeff",
+  //     price: 190
+  //   };
+
+  //   let validator = (target, key, value) => {
+  //     if (Reflect.has(target, key)) {
+  //       if (key === "price") {
+  //         if (value > 300) {
+  //           return false;
+  //         } else {
+  //           target[key] = value;
+  //         }
+  //       } else {
+  //         target[key] = value;
+  //       }
+  //     } else {
+  //       return false;
+  //     }
+  //   };
+  //   let d = new Proxy(o, {
+  //     get(target, key) {
+  //       return target[key];
+  //     },
+  //     set: validator
+  //   });
+  //   d.price = 200;
+  //   d.name = "tom";
+  //   console.log(d.price, d.name);
+  //--------------------------------------
+  // 组件初始化的时候都赋值一个可读且随机的ID，该怎么做？
+  //   class Component {
+  //     constructor() {
+  //       this.proxy = new Proxy(
+  //         {
+  //           id: Math.random()
+  //             .toString(36)
+  //             .slice(-8)
+  //         },
+  //         {}
+  //       );
+  //     }
+  //     get id() {
+  //       return this.proxy.id;
+  //     }
+  //   }
+  //   let com = new Component();
+  //   let com2 = new Component();
+  //   for (let i = 0; i < 10; i++) {
+  //     console.log(com.id, com2.id);
+  //   }
+  //   com.id = "abc";
+  //   console.log(com.id, com2.id);
+
+  // 代理销毁（阅后即焚场景)
+  let o = {
+    name: "jeff",
+    price: 190
+  };
+  let d = Proxy.revocable(o, {
+    get(target, key) {
+      if (key === "price") {
+        return target[key] + 20;
+      } else {
+        return target[key];
+      }
+    }
+  });
+  console.log(d.proxy.price, d);
+  setTimeout(function() {
+    d.revoke();
+    setTimeout(function() {
+      console.log(d.proxy.price);
+    }, 1000);
+  }, 1000);
+</script>

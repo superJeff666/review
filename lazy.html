@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>原生js实现图片的懒加载</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        } 
+        img {
+            display: inline-block;
+            width: 100%;
+            height: 300px;
+            background: gray;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="box-image">
+      <img
+        src=""
+        class="image-item"
+        lazyload="true"
+        data-original="https://img.alicdn.com/imgextra/i2/252339290/TB29PYUXnIlyKJjSZFrXXXn2VXa_!!252339290-0-beehive-scenes.jpg_180x180xzq90.jpg_.webp"
+        alt=""
+      />
+      <img
+        src=""
+        class="image-item"
+        lazyload="true"
+        data-original="https://img.alicdn.com/imgextra/i4/2260152888/O1CN01vw2e251XCkJr0VPZU_!!2260152888-0-beehive-scenes.jpg_250x250xz.jpg"
+        alt=""
+      />
+      <img
+        src=""
+        class="image-item"
+        lazyload="true"
+        data-original="https://img.alicdn.com/imgextra/i3/24687421/TB2Xg1izsyYBuNkSnfoXXcWgVXa_!!24687421-0-beehive-scenes.jpg_250x250xz.jpg"
+        alt=""
+      />
+      <img
+        src=""
+        class="image-item"
+        lazyload="true"
+        data-original="https://img.alicdn.com/imgextra/i4/890151842/TB2II1mnZbI8KJjy1zdXXbe1VXa_!!890151842-0-beehive-scenes.jpg_250x250xz.jpg"
+        alt=""
+      />
+      <img
+        src=""
+        class="image-item"
+        lazyload="true"
+        data-original="https://img.alicdn.com/imgextra/i2/2096513830/TB2l1W0kRnTBKNjSZPfXXbf1XXa_!!2096513830-0-beehive-scenes.jpg_250x250xz.jpg"
+        alt=""
+      />
+      <img
+        src=""
+        class="image-item"
+        lazyload="true"
+        data-original="https://img.alicdn.com/imgextra/i3/2586222636/TB2RDGrpqAoBKNjSZSyXXaHAVXa_!!2586222636-0-daren.jpg_250x250xz.jpg"
+        alt=""
+      />
+      <img
+        src=""
+        class="image-item"
+        lazyload="true"
+        data-original="https://img.alicdn.com/imgextra/i2/1870112525/TB2Ae.xbOwIL1JjSZFsXXcXFFXa_!!1870112525-2-beehive-scenes.png_250x250xz.jpg"
+        alt=""
+      />
+      <img
+        src=""
+        class="image-item"
+        lazyload="true"
+        data-original="https://img.alicdn.com/imgextra/i2/2194952831/TB2PwWty7qvpuFjSZFhXXaOgXXa_!!2194952831-0-beehive-scenes.jpg_250x250xz.jpg"
+        alt=""
+      />
+    </div>
+    <script>
+      var viewHeight = document.documentElement.clientHeight; // = window.innerHeight?
+      // 节流:加一个300ms的间隔执行
+      function throttle(fn, wait) {
+        let canRun = true;
+        return function(...args) {
+          if (!canRun) return;
+          canRun = false;
+          setTimeout(() => {
+            fn.apply(this, args);
+            canRun = true;
+          }, wait);
+        };
+      }
+      function lazyload() {
+        let imgs = document.querySelectorAll("img[data-original][lazyload]"); // 获取文档中所有拥有data-original lazyload属性的<img>节点
+        imgs.forEach(item => {
+          if (item.dataset.original == "") {
+            // HTMLElement.dataset属性允许无论是在读取模式和写入模式下访问在 HTML或 DOM中的元素上设置的所有自定义数据属性(data-*)集。
+            return;
+          }
+          // 返回一个DOMRect对象，包含了一组用于描述边框的只读属性——left、top、right和bottom，
+          // 单位为像素。除了 width 和 height 外的属性都是相对于视口的左上角位置而言的。
+          let rect = item.getBoundingClientRect();
+          // 其top值是相对于当前视窗的顶部而言的而不是绝对的顶部，所以top值 < window.innerHeight的话图片就出现在底部了就需要加载
+          if (rect.bottom >= 0 && rect.top < viewHeight) {
+            let img = new Image();
+            img.src = item.dataset.original;
+            // 图片加载完成触发load事件?
+            img.onload = function() {
+              item.src = img.src;
+            };
+            // 移除属性的话就不会重复加载了
+            item.removeAttribute("data-original");
+            item.removeAttribute("lazyload");
+          }
+        });
+      }
+      // 先调用一次加载最初显示在视窗中的图片
+      lazyload();
+      let throttle_lazyload = throttle(lazyload, 300);
+      document.addEventListener("scroll", throttle_lazyload);
+    </script>
+  </body>
+</html>

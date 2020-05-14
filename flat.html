@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>flat</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  // 数组拍平
+  // function flat(arr) {
+  //   // 验证arr中还有没有深层数组 [1,2,[3,4]]
+  //   const isDeep = arr.some(item => item instanceof Array);
+  //   if (!isDeep) {
+  //     return arr; // 已经是flatern [1,2,3,4]
+  //   }
+  //   const res = Array.prototype.concat.apply([], arr);
+  //   return flat(res); //递归
+  // }
+  // const res = flat([1, 2, [3, 4, [10, 20], 5]]);
+  // console.log(res);
+  //-------------------------------------------------------------
+
+  //输入: ['a',['b','c'],2,['d','e','f'],'g',3,4];
+  // 输出: a,b,c,2,d,e,f,g,3,4
+
+  //方法1（递归)
+  // function flat(arr) {
+  //   let result = [];
+  //   function each(arr) {
+  //     arr.forEach(item => {
+  //       if (item instanceof Array) {
+  //         each(item);
+  //       } else {
+  //         result.push(item);
+  //       }
+  //     });
+  //   }
+  //   each(arr);
+  //   return result.join(',')
+  // }
+  // const arr = ['a',['b','c'],2,['d','e','f'],'g',3,4];
+  // console.log(flat(arr));
+
+  //方法2(toString 格式转换)
+  const arr = ["a", ["b", "c"], 2, ["d", "e", "f"], "g", 3, 4];
+  // function flat(arr) {
+  //   let toString = Array.prototype.toString;
+  //   Array.prototype.toString = function() {
+  //     return this.join(",");
+  //   };
+  //   let result = arr + "";
+  //   Array.prototype.toString = toString;
+  //   return result;
+  // }
+  // console.log(flat(arr));
+  
+
+  //方法3(valueOf 格式转换)
+  function flat(arr) {
+    let valueOf = Array.prototype.valueOf;
+    Array.prototype.valueOf = function() {
+      return this.join(',');
+    };
+    let result = arr + '';
+    Array.prototype.valueOf = valueOf;
+    return result;
+  }
+  console.log(flat(arr));
+</script>

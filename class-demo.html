@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  class Student {
+    constructor(name, number) {
+      this.name = name;
+      this.number = number;
+    }
+    sayHi() {
+      console.log(`姓名${this.name}，学号${this.number}`);
+    }
+  }
+
+  const xialuo = new Student("xialuo", 100);
+  console.log(xialuo.name);
+  xialuo.sayHi();
+</script>

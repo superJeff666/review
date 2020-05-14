@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>layout</title>
+    <style>
+      html * {
+        margin: 0;
+        padding: 0;
+      }
+      .layout {
+        margin-top: 20px;
+      }
+      .layout article div {
+        min-height: 100px;
+      }
+
+      .layout.float .left {
+        width: 300px;
+        float: left;
+        background: red;
+      }
+      .layout.float .right {
+        width: 300px;
+        float: right;
+        background: blue;
+      }
+      .layout.float .center {
+        background: pink;
+      }
+
+      .layout.absolute .left-center-right > div {
+        position: absolute;
+      }
+      .layout.absolute .left {
+        left: 0;
+        width: 300px;
+        background: red;
+      }
+      .layout.absolute .center {
+        left: 300px;
+        right: 300px;
+        background: pink;
+      }
+      .layout.absolute .right {
+        right: 0;
+        width: 300px;
+        background: blue;
+      }
+      .layout.flex {
+        margin-top: 140px;
+      }
+      .layout.flex .left-center-right {
+        display: flex;
+      }
+      .layout.flex .left {
+        width: 300px;
+        background: red;
+      }
+      .layout.flex .center {
+        flex: 1;
+        background: pink;
+      }
+      .layout.flex .right {
+        width: 300px;
+        background: blue;
+      }
+
+      .layout.table .left-center-right {
+        width: 100%;
+        display: table;
+        height: 100px;
+      }
+      .layout.table .left-center-right > div {
+        display: table-cell;
+      }
+      .layout.table .left {
+        width: 300px;
+        background: red;
+      }
+      .layout.table .center {
+        background: pink;
+      }
+
+      .layout.table .right {
+        width: 300px;
+        background: blue;
+      }
+      .layout.grid .left-center-right {
+        display: grid;
+        width: 100%;
+        grid-template-rows: 100px;
+        grid-template-columns: 300px auto 300px;
+      }
+      .layout.grid .left {
+        background: red;
+      }
+      .layout.grid .center {
+        background: pink;
+      }
+      .layout.grid .right {
+        background: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 假设高度已定，写出三栏布局，其中左栏，右栏宽度各为300px，中间自适应 -->
+    <!-- 当增加高度的时候，flex布局和table布局仍然可用，最优解 -->
+    <!-- 浮动解决方案 -->
+    <section class="layout float">
+      <article class="left-right-center">
+        <div class="left"></div>
+        <div class="right"></div>
+        <div class="center">
+          <h1>浮动解决方案</h1>
+          <p>增加高度</p>
+          <p>增加高度</p>
+          <p>增加高度</p>
+          <p>增加高度</p>
+          <p>增加高度</p>
+          <p>增加高度</p>
+        </div>
+      </article>
+    </section>
+    <!-- 绝对定位解决方案 -->
+    <section class="layout absolute">
+      <article class="left-center-right">
+        <div class="left"></div>
+        <div class="center">
+          <h1>绝对定位解决方案</h1>
+          1.这是三列布局绝对定位中间部分
+          <p>增加高度</p>
+          <p>增加高度</p>
+          <p>增加高度</p>
+          <p>增加高度</p>
+          <p>增加高度</p>
+          <p>增加高度</p>
+        </div>
+        <div class="right"></div>
+      </article>
+    </section>
+    <!-- flex布局解决方案 -->
+    <section class="layout flex">
+      <article class="left-center-right">
+        <div class="left"></div>
+        <div class="center">
+          <h1>flex解决方案</h1>
+          1.这是三列布局flex中间部分
+          <p>增加高度</p>
+          <p>增加高度</p>
+          <p>增加高度</p>
+          <p>增加高度</p>
+          <p>增加高度</p>
+          <p>增加高度</p>
+        </div>
+        <div class="right"></div>
+      </article>
+    </section>
+    <!-- 表格布局解决方案 -->
+    <section class="layout table">
+      <article class="left-center-right">
+        <div class="left"></div>
+        <div class="center">
+          <h1>table解决方案</h1>
+          1.这是三列布局table中间部分
+          <p>增加高度</p>
+          <p>增加高度</p>
+          <p>增加高度</p>
+          <p>增加高度</p>
+          <p>增加高度</p>
+          <p>增加高度</p>
+        </div>
+        <div class="right"></div>
+      </article>
+    </section>
+    <!-- grid布局解决方案 -->
+    <section class="layout grid">
+      <article class="left-center-right">
+        <div class="left"></div>
+        <div class="center">
+          <h1>grid解决方案</h1>
+          1.这是三列布局grid中间部分
+          <p>增加高度</p>
+          <p>增加高度</p>
+          <p>增加高度</p>
+          <p>增加高度</p>
+          <p>增加高度</p>
+          <p>增加高度</p>
+        </div>
+        <div class="right"></div>
+      </article>
+    </section>
+  </body>
+</html>

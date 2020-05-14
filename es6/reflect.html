@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>反射</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  // console.log(Math.floor.apply(null, [3.72]))
+  // console.log(Reflect.apply(Math.floor,null,[4.72]))
+  
+//   let d = new Date();
+//   console.log(d.getTime());
+
+// let d = Reflect.construct(Date,[]);
+// console.log(d.getTime(), d instanceof Date);
+
+// const student = {};
+// const r = Reflect.defineProperty(student, 'name', {value: 'jeff'});
+// console.log(student, r);
+
+// const obj = {
+//     x: 1,
+//     y: 2
+// }
+// console.log(Reflect.get(obj, 'x'))
+
+// console.log(Reflect.get([3,4],1))
+// let d = new Date();
+// console.log(Reflect.getPrototypeOf(d))
+
+// const obj = {
+//     x: 1,
+//     y: 2
+// }
+// console.log(Reflect.has(obj, 'x')) //has 是Reflect特有的方法
+
+// const obj = {
+//     x: 1,
+//     y: 2
+// }
+// Object.freeze(obj);
+// obj.z = 3;
+// console.log(Reflect.isExtensible(obj))
+
+// console.log(Reflect.ownKeys(obj));
+// console.log(Reflect.ownKeys([1,2]))
+
+// Reflect.preventExtensions(obj);
+// console.log(Reflect.isExtensible(obj))
+
+const arr = ['duck','duck', 'duck'];
+Reflect.setPrototypeOf(arr,String.prototype);
+console.log(Reflect.getPrototypeOf(arr));
+
+</script>

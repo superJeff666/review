@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>AsyncAwait</title>
+  </head>
+  <body>
+    <div>AsyncAwait</div>
+  </body>
+</html>
+<script>
+  // async function firstAsync() {
+  //   return 27;
+  // }
+  // firstAsync().then(val => {
+  //   console.log(val)
+  // })
+  // console.log(firstAsync() instanceof Promise)
+
+  async function firstAsync() {
+    let promise = new Promise((resolve, reject) => {
+      setTimeout(function() {
+        resolve("now it is done");
+      }, 1000);
+    });
+    console.log(await promise);
+    console.log(await Promise.resolve(40));
+    console.log(2);
+    return Promise.resolve(3);
+  }
+  firstAsync().then(val => {
+    console.log(val);
+  });
+</script>
